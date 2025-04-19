@@ -287,9 +287,11 @@ nav {
 
 /* Projects Section */
 .projects-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
     gap: 30px;
+    padding: 0 20px;
 }
 
 .project-card {
@@ -298,6 +300,19 @@ nav {
     overflow: hidden;
     box-shadow: var(--shadow);
     transition: transform 0.3s;
+    width: 300px;
+    flex: 0 0 auto;
+}
+
+@media (max-width: 768px) {
+    .projects-grid {
+        gap: 20px;
+    }
+    
+    .project-card {
+        width: 100%;
+        max-width: 350px;
+    }
 }
 
 .project-card:hover {
