@@ -286,6 +286,7 @@ nav {
 }
 
 /* Projects Section */
+/* Projects Section */
 .projects-grid {
     display: flex;
     flex-wrap: wrap;
@@ -300,7 +301,7 @@ nav {
     overflow: hidden;
     box-shadow: var(--shadow);
     transition: transform 0.3s;
-    width: 300px;
+    width: 320px;  /* Increased from 300px */
     flex: 0 0 auto;
 }
 
@@ -311,7 +312,7 @@ nav {
     
     .project-card {
         width: 100%;
-        max-width: 350px;
+        max-width: 400px;  /* Increased max-width for mobile */
     }
 }
 
