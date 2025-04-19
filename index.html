@@ -557,6 +557,12 @@
             }
         }
     </style>
+    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+    <script>
+        (function() {
+            emailjs.init("7e0GkcWOe-1Q5oDMt"); // Replace with your EmailJS User ID
+        })();
+    </script>
 </head>
 <body>
     <!-- Header -->
@@ -859,14 +865,14 @@
                 </div>
                 
                 <div class="contact-form">
-                    <form action="https://formspree.io/f/xnnpeael" method="POST">
+                    <form id="contact-form">
                         <div class="form-group">
                             <label for="name">Your Name</label>
-                            <input type="text" id="name" name="name" required>
+                            <input type="text" id="name" name="from_name" required>
                         </div>
                         <div class="form-group">
                             <label for="email">Your Email</label>
-                            <input type="email" id="email" name="email" required>
+                            <input type="email" id="email" name="from_email" required>
                         </div>
                         <div class="form-group">
                             <label for="subject">Subject</label>
@@ -961,6 +967,32 @@
                 }
             });
         });
+        const form = document.getElementById('contact-form');
+    
+    form.addEventListener('submit', function(e) {
+        e.preventDefault();
+        
+        // Show loading state
+        const submitBtn = form.querySelector('button[type="submit"]');
+        const originalBtnText = submitBtn.innerHTML;
+        submitBtn.innerHTML = 'Sending...';
+        submitBtn.disabled = true;
+        
+        emailjs.sendForm('service_u35mn7n', 'template_0lodkei', form)
+            .then(function() {
+                alert('Message sent successfully!');
+                form.reset();
+            })
+            .catch(function(error) {
+                alert('Sorry, there was an error sending your message. Please try again later.');
+                console.error('Error:', error);
+            })
+            .finally(function() {
+                // Reset button state
+                submitBtn.innerHTML = originalBtnText;
+                submitBtn.disabled = false;
+            });
+    });
     </script>
 </body>
 </html>
