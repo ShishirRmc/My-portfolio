@@ -232,27 +232,37 @@ nav {
 }
 
 .skills {
-    margin-top: 30px;
+    text-align: center;
+    margin: 0 auto;
+    padding: 20px 0;
 }
 
-.skills h4 {
-    margin-bottom: 15px;
+.skills-category {
+    margin-bottom: 40px;
+}
+
+.skills-category h4 {
+    margin-bottom: 20px;
     color: var(--secondary-color);
 }
 
+/* Updated layout to display only two categories per row */
 .skills-list {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
+    gap: 15px;
+    margin: 0 auto;
+    max-width: 900px;
 }
 
 .skill-item {
-    background-color: var(--white);
+    margin: 10px;
     padding: 10px 20px;
-    margin: 0 10px 10px 0;
+    background-color: var(--white);
     border-radius: 5px;
     box-shadow: var(--shadow);
-    font-size: 14px;
+    font-size: 16px;
 }
 
 /* Experience Section */
