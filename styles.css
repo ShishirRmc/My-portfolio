@@ -519,6 +519,116 @@ footer {
     color: var(--primary-color);
 }
 
+/* --- Clean Two-Sided Timeline --- */
+.timeline {
+  position: relative;
+  width: 100%;
+  margin: 60px 0 40px 0;
+  padding: 0;
+}
+.timeline::before {
+  content: '';
+  position: absolute;
+  left: 50%;
+  top: 0;
+  transform: translateX(-50%);
+  width: 2px;
+  height: 100%;
+  background: var(--primary-color);
+  z-index: 0;
+}
+.timeline-item {
+  position: relative;
+  width: 50%;
+  padding: 30px 0;
+  box-sizing: border-box;
+}
+.timeline-item.left {
+  left: 0;
+  text-align: right;
+}
+.timeline-item.right {
+  left: 50%;
+  text-align: left;
+}
+.timeline-content {
+  display: inline-block;
+  background: var(--background-color);
+  border: 1px solid var(--primary-color);
+  border-radius: 10px;
+  padding: 4px 12px;
+  min-width: 250px;
+  max-width: 90%;
+  position: relative;
+  z-index: 2;
+}
+.timeline-item.left .timeline-content {
+  margin-right: 40px;
+}
+.timeline-item.right .timeline-content {
+  margin-left: 40px;
+}
+.timeline-item::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 100%;
+  transform: translateY(-50%);
+  width: 18px;
+  height: 18px;
+  background: var(--background-color);
+  border: 2px solid var(--primary-color);
+  border-radius: 50%;
+  z-index: 3;
+}
+.timeline-item.left::after {
+  left: auto;
+  right: -9px;
+}
+.timeline-item.right::after {
+  left: -9px;
+}
+.timeline-content .company {
+  /* font-weight: bold; */
+  font-size: 1.1em;
+  color: var(--secondary-color);
+  margin-bottom: 4px;
+}
+.timeline-content .role {
+  color: var(--primary-color);
+  font-size: 1.08em;
+  font-weight: bold;
+  margin-bottom: 4px;
+}
+.timeline-content .date {
+  color: var(--light-text);
+  font-size: 0.97em;
+}
+@media (max-width: 900px) {
+  .timeline::before {
+    left: 20px;
+    transform: none;
+  }
+  .timeline-item,
+  .timeline-item.left,
+  .timeline-item.right {
+    width: 100%;
+    left: 0;
+    text-align: left;
+    padding-left: 50px;
+    padding-right: 0;
+  }
+  .timeline-item.left .timeline-content,
+  .timeline-item.right .timeline-content {
+    margin: 0 0 0 30px;
+  }
+  .timeline-item::after {
+    left: 9px;
+    right: auto;
+  }
+}
+/* --- End Timeline --- */
+
 /* Responsive Styles */
 @media (max-width: 768px) {
     .nav-links {
